@@ -12,7 +12,7 @@ export default async function DashboardPage() {
             <h1 className="text-2xl font-bold">Dashboard</h1>
             <p>Welcome <span className="font-medium">{user.name}</span></p>
             <div className="flex gap-4">
-                <Link href="/login" className={cn(buttonVariants({ variant: "outline" }))}>
+                <Link href="/" className={cn(buttonVariants({ variant: "outline" }))}>
                     <HomeIcon className="size-4" />
                     Home
                 </Link>
