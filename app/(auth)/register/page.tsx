@@ -63,6 +63,10 @@ export default function RegisterPage() {
                     router.push("/login")
                 },
                 onError: (ctx) => {
+                    if (ctx.error.status === 422) {
+                        toast.error("Please verify your email address");
+                        return
+                    }
                     toast.error(ctx.error.message)
                 },
             });
