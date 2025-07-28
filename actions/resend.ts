@@ -8,7 +8,7 @@ export const resend = new Resend(env.RESEND_API_KEY);
 export async function sendEmailVerificationEmail({ fullName, email, url, subject }: { fullName: string, email: string, url: string, subject: string }) {
     try {
         const { data, error } = await resend.emails.send({
-            from: 'Next.js with Better Auth <do-not-reply@email.captomatic.pro>',
+            from: `${env.NEXT_PUBLIC_APP_NAME} <do-not-reply@email.captomatic.pro>`,
             // from: 'Acme <onboarding@resend.dev>', // For testing, default if you don't have a verified domain on Resend
             to: [email],
             subject: subject,
@@ -29,7 +29,7 @@ export async function sendEmailVerificationEmail({ fullName, email, url, subject
 export async function sendForgotPasswordEmail({ email, url, subject }: { email: string, url: string, subject: string }) {
     try {
         const { data, error } = await resend.emails.send({
-            from: 'Next.js with Better Auth <do-not-reply@email.captomatic.pro>',
+            from: `${env.NEXT_PUBLIC_APP_NAME} <do-not-reply@email.captomatic.pro>`,
             // from: 'Acme <onboarding@resend.dev>', // For testing, default if you don't have a verified domain on Resend
             to: [email],
             subject: subject,

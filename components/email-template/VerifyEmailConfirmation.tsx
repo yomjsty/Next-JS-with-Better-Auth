@@ -12,6 +12,7 @@ import {
     Text,
     Tailwind,
 } from '@react-email/components';
+import { env } from "@/lib/env";
 
 interface iAppProps {
     fullName: string;
@@ -92,7 +93,7 @@ export function EmailVerificationEmail({ fullName, email, url }: iAppProps) {
                         {/* Footer */}
                         <Section className="border-t border-gray-200 pt-[24px]">
                             <Text className="text-[12px] text-gray-500 text-center mb-[8px] m-0">
-                                © 2025 Next.js with Better Auth. All rights reserved.
+                                © 2025 {env.NEXT_PUBLIC_APP_NAME}. All rights reserved.
                             </Text>
                         </Section>
                     </Container>

@@ -11,7 +11,7 @@ import { sendEmailVerificationEmail, sendForgotPasswordEmail } from "@/actions/r
 
 
 export const auth = betterAuth({
-    appName: "Next.js with Better Auth",
+    appName: env.NEXT_PUBLIC_APP_NAME,
     database: prismaAdapter(db, {
         provider: "postgresql",
     }),
@@ -39,6 +39,8 @@ export const auth = betterAuth({
         },
         expiresIn: 60 * 60 * 1000, // 1 hour
         sendOnSignUp: false, // set to true to send verification email on sign up
+        sendOnSignIn: false, // set to true to send verification email on sign in
+        autoSignInAfterVerification: false, // set to true to auto sign in after registration
     },
     socialProviders: {
         github: {
@@ -50,6 +52,12 @@ export const auth = betterAuth({
         //     clientId: env.GOOGLE_CLIENT_ID,
         //     clientSecret: env.GOOGLE_CLIENT_SECRET,
         // },
+    },
+    session: {
+        cookieCache: {
+            enabled: true,
+            maxAge: 5 * 60 // Cache duration in seconds
+        }
     },
     plugins: [
         admin(),

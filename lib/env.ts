@@ -11,7 +11,11 @@ export const env = createEnv({
         RESEND_API_KEY: z.string().min(1),
     },
 
-    client: {},
+    client: {
+        NEXT_PUBLIC_APP_NAME: z.string().min(1),
+    },
 
-    experimental__runtimeEnv: {}
+    experimental__runtimeEnv: {
+        NEXT_PUBLIC_APP_NAME: process.env.NEXT_PUBLIC_APP_NAME,
+    }
 });
